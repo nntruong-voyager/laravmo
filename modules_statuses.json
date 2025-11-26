@@ -1,0 +1,6 @@
+{
+    "Users": true,
+    "Orders": true,
+    "Payments": true,
+    "Inventory": true
+}
