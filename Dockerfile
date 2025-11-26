@@ -22,12 +22,11 @@ WORKDIR /var/www/html
 
 COPY composer.json composer.lock ./
 
-RUN composer install --no-interaction --no-dev --prefer-dist --no-scripts --no-autoloader
+RUN composer install --no-interaction --no-dev --prefer-dist
 
 COPY . .
 
-RUN composer dump-autoload --optimize \
-    && chown -R www-data:www-data storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache vendor
 
 CMD ["php-fpm"]
 
